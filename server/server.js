@@ -5,11 +5,7 @@ const monsters = require('./monsters.js');
 
 app.use(express.static('server/public'));
 
-app.get('/', (req,res)=> {
-    res.send('get / is working')
-});
-
-app.get('/monsters', (req, res) => {
+app.get('/monsters', (req,res)=> {
     res.send(monsters);
 });
 
