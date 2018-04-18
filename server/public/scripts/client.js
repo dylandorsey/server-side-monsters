@@ -2,18 +2,21 @@ console.log('in js');
 
 $(document).ready(onReady);
 
-function onReady(){
+function onReady() {
     console.log('in jq');
     appendAllMonsters();
 }
 
-function appendAllMonsters(){
+function appendAllMonsters() {
     $.ajax({
         type: 'GET',
         url: '/monsters'
     })
-    .then(function (response) {
-        console.log(response);
-    });
+        .then(function (response) {
+            for (let i = 0; i < response.length; i++) {
+                $('#monsterList').append(`<li>${response[i]}</li>`);
+            }
+            console.log(response);
+        });
     console.log('appendAllMonstersCalled');
 }
